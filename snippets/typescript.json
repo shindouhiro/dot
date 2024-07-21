@@ -1,0 +1,9 @@
+{ 
+  "mui-message": {
+    "prefix": "mui-message",
+    "body": [
+      "enqueueSnackbar('${1:保成功}');"
+    ],
+    "description": "mui-message"
+  } 
+}

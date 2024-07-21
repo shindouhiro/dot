@@ -45,9 +45,10 @@ Map("n", "bmc", ":Telescope vim_bookmarks current_file<cr>")
 Map("n", "bm", ":Telescope vim_bookmarks all<cr>")
 Map("n", "<C-b>", ":Telescope buffers<Cr>")
 Map("n", "<C-f>", ":Telescope live_grep<Cr>")
+-- Map("n", "<C-h>", ":Telescope oldfiles<Cr>")
 ------------- 插件快捷键-------------
 -- fittencode
-Map("i", "<Tab>", function()
+Map("i", "<C-l>", function()
   require("fittencode").accept_all_suggestions()
 end, { desc = "accept_all_suggestions" })
 
@@ -56,3 +57,7 @@ Map("i", "<a-k>", function()
 end, { desc = "dismiss_all_suggestions" })
 
 Map("n", "<leader>fc", "<cmd>Fitten start_chat<cr>", { desc = "start_chat" })
+Map("v", "<leader>ftc", "<cmd>Fitten translate_text_into_chinese<cr>", { desc = "翻译中文" })
+Map("v", "<leader>fte", "<cmd>Fitten translate_text_into_english<cr>", { desc = "翻译英文" })
+Map("v", "<leader>ftrc", "<cmd>Fitten refactor_code<cr>", { desc = "重构" })
+Map("v", "<leader>ftoc", "<cmd>Fitten refactor_code<cr>", { desc = "优化" })
