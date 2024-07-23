@@ -5,5 +5,13 @@
       "enqueueSnackbar('${1:保成功}');"
     ],
     "description": "mui-message"
+  } ,
+  "ant-tr": {
+    "prefix": "ant-tr",
+    "body": [
+      "<Translation token=\"${1:settings.general_setting}\" />"
+    ],
+    "description": "ant-translation"
+
   } 
 }

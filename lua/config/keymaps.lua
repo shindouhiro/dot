@@ -22,7 +22,7 @@ Map("n", "<s-l>", "$")
 Map("n", "<C-s>", ":w<CR>")
 --split
 Map("n", "ss", "<C-w>s", { desc = "Go to left window", remap = true })
-Map("n", "so", "<C-w>o", { desc = "Go to left window", remap = true })
+Map("n", "so", "<C-w>o", { desc = "merge window", remap = true })
 Map("n", "<Down>", ":resize +2<CR>")
 Map("n", "<Right>", ":vertical resize +2<CR>")
 Map("n", "<Left>", ":vertical resize -2<CR>")
