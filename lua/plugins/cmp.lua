@@ -2,12 +2,12 @@
 -- 代码补全 和 括号补齐
 local kind_icons = {
   Text = "🀙",
-  Method = "m",
+  Method = "⚡︎",
   Function = "☯︎",
   Constructor = "",
   Field = "",
-  Variable = "",
-  Class = "",
+  Variable = "☠︎",
+  Class = "⚙︎",
   Interface = "",
   Module = "",
   Property = "",
