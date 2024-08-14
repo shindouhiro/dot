@@ -11,9 +11,20 @@ function Map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
+-- ---------- bookmarks --------------
+-- vim.keymap.set("n", "mi", function()
+--   require("bookmarks").add_bookmark()
+-- end, { desc = "Add bookmark" })
+--
 Map("i", "jk", "<Esc>")
 Map("v", "jk", "<Esc>")
+Map("n", "<C-h>", "<cmd>lua require'tmux'.move_left()<cr>", { desc = "Go to left window" })
+Map("n", "<C-j>", "<cmd>lua require'tmux'.move_bottom()<cr>", { desc = "Go to lower window" })
+Map("n", "<C-k>", "<cmd>lua require'tmux'.move_top()<cr>", { desc = "Go to upper window" })
+Map("n", "<C-l>", "<cmd>lua require'tmux'.move_right()<cr>", { desc = "Go to right window" })
 
+Map("n", "gf", "<cmd>Lspsaga finder<CR>")
+Map("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
 -- ---------- 视觉模式 --------------
 Map("v", "<s-h>", "^")
 Map("v", "<s-l>", "$")
@@ -39,10 +50,6 @@ Map("t", "<C-t>", "<cmd>Lspsaga term_toggle<cr>", { desc = "Hide Terminal" })
 Map("n", "<C-g>", function()
   Util.terminal({ "lazygit" }, { cwd = Util.root(), esc_esc = false, ctrl_hjkl = false })
 end, { desc = "Lazygit (root dir)" })
-
--- bookmark
-Map("n", "bmc", ":Telescope vim_bookmarks current_file<cr>")
-Map("n", "bm", ":Telescope vim_bookmarks all<cr>")
 Map("n", "<C-b>", ":Telescope buffers<Cr>")
 Map("n", "<C-f>", ":Telescope live_grep<Cr>")
 -- Map("n", "<C-h>", ":Telescope oldfiles<Cr>")
@@ -55,9 +62,10 @@ end, { desc = "accept_all_suggestions" })
 Map("i", "<a-k>", function()
   require("fittencode").dismiss_suggestions()
 end, { desc = "dismiss_all_suggestions" })
-
 Map("n", "<leader>fc", "<cmd>Fitten start_chat<cr>", { desc = "start_chat" })
 Map("v", "<leader>ftc", "<cmd>Fitten translate_text_into_chinese<cr>", { desc = "翻译中文" })
 Map("v", "<leader>fte", "<cmd>Fitten translate_text_into_english<cr>", { desc = "翻译英文" })
 Map("v", "<leader>ftrc", "<cmd>Fitten refactor_code<cr>", { desc = "重构" })
 Map("v", "<leader>ftoc", "<cmd>Fitten refactor_code<cr>", { desc = "优化" })
+
+-- vim.keymap.set("n", "lg", "<cmd>Logsitter<cr>")

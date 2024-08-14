@@ -1,17 +1,180 @@
-{ 
+{
   "mui-message": {
     "prefix": "mui-message",
     "body": [
       "enqueueSnackbar('${1:保成功}');"
     ],
     "description": "mui-message"
-  } ,
+  },
   "ant-tr": {
     "prefix": "ant-tr",
     "body": [
       "<Translation token=\"${1:settings.general_setting}\" />"
     ],
     "description": "ant-translation"
-
-  } 
+  },
+  "ant-access": {
+    "prefix": "ant-access",
+    "body": [
+      "<ProjectAccess accessKey=\"application_manage\">",
+      ""
+    ],
+    "description": ""
+  },
+  "mui-crud": {
+    "prefix": "mui-crud",
+    "body": [
+      "  const {",
+      "    rawData,",
+      "    // 叫plugins其实是已绑定的技能列表",
+      "    data: plugins,",
+      "    noMore,",
+      "    isLoadingMore,",
+      "    isFetching,",
+      "    loadMore,",
+      "    size,",
+      "    mutate,",
+      "    actions,",
+      "  } = useCRUDInfinite<",
+      "    IAgentPlugin,",
+      "    'plugins',",
+      "    PaginationResponse<{ plugins: IAgentPlugin[]; agent: IAgent }>",
+      "  >(url, {",
+      "    listKey: 'plugins',",
+      "  });",
+      ""
+    ],
+    "description": ""
+  },
+  "mui-crud-params": {
+    "prefix": "mui-crud-params",
+    "body": [
+      "  const [params, setParams] = useState<{ type: string | number; name?: string }>({",
+      "    type: 'own',",
+      "    name: '',",
+      "  });",
+      "",
+      "  // 我的插件调用插件列表，其他分类插件调用插件中心的接口",
+      "  const isStorePlugin = params.type !== 'own';",
+      "  const {",
+      "    data: plugins,",
+      "    isLoading: isPluginsLoading,",
+      "    isLoadingMore,",
+      "    size,",
+      "    loadMore,",
+      "    noMore,",
+      "  } = useCRUDInfinite<IPlugin & IStorePlugin>(!isStorePlugin ? PLUGINS_PATH : STORE_PLUGINS_PATH, {",
+      "    params: !isStorePlugin ? { name: params.name } : { name: params.name, category: params.type },",
+      "    defaultPageSize: 10,",
+      "    listKey: !isStorePlugin ? 'data' : 'plugins',",
+      "  });",
+      "",
+      ""
+    ],
+    "description": ""
+  },
+  "mui-crud-params-pagination": {
+    "prefix": "mui-crud-params-pagination",
+    "body": [
+      "  const [params, setParams] = useState({});",
+      "",
+      "  const {",
+      "    data: plugins,",
+      "    isFetching,",
+      "    actions,",
+      "    pagination,",
+      "    refresh,",
+      "  } = UseCRUD<IPluginRD>(PLUGINS_PATH, { params, paginated: true });",
+      ""
+    ],
+    "description": ""
+  },
+  "next-add": {
+    "prefix": "next-add",
+    "body": [
+      "  const handleAdd = (name: string) => {",
+      "    actions.Add({ type, name, id: 0 });",
+      "  };",
+      ""
+    ],
+    "description": ""
+  },
+  "next-update": {
+    "prefix": "next-update",
+    "body": [
+      "  const handleUpdate = (name: string, previous: string) => {",
+      "    const id = categoryMap[previous];",
+      "    if (!id) return;",
+      "    actions.Update(id, { id, name, type });",
+      "  };",
+      ""
+    ],
+    "description": ""
+  },
+  "next-delete": {
+    "prefix": "next-delete",
+    "body": [
+      "  const handleDelete = (name: string) => {",
+      "    console.log(name)",
+      "    const id = categoryMap[name];",
+      "    if (!id) return;",
+      "    actions.Delete(id);",
+      "  };",
+      ""
+    ],
+    "description": ""
+  },
+  "mui-delete": {
+    "prefix": "mui-delete",
+    "body": [
+      "                        <Tooltip title=\"删除\">",
+      "                          <ConfirmPopover",
+      "                            description={`确定删除插件${row.plugin_name}的鉴权信息？`}",
+      "                            request={() =>",
+      "                              actions.Delete(row.auth_id).then(() => {",
+      "                                enqueueSnackbar('删除成功');",
+      "                              })",
+      "                            }",
+      "                          >",
+      "                            <IconButton color=\"error\">",
+      "                              <DeleteIcon sx={{ fontSize: 18 }} />",
+      "                            </IconButton>",
+      "                          </ConfirmPopover>",
+      "                        </Tooltip>",
+      ""
+    ],
+    "description": "mui-delete"
+  },
+  "ant-table": {
+    "prefix": "ant-table",
+    "body": [
+      "  const { tableProps, search, refresh } = useAntdTable(getClusterList, {",
+      "    defaultPageSize: 10,",
+      "    form,",
+      "    pollingInterval: 5000,",
+      "  });",
+      ""
+    ],
+    "description": "ant-table"
+  },
+  "ant-delete": {
+    "prefix": "ant-delete",
+    "body": [
+      "    modal.confirm({",
+      "      icon: <CtgIcon type=\"icon-circle-warn\" style={{ color: 'rgba(235, 56, 80, 1)' }} />,",
+      "      title: '确认',",
+      "      content: `确认删除集群${row.name}吗？`,",
+      "      okButtonProps: {",
+      "        danger: true",
+      "      },",
+      "      onOk: async () => {",
+      "        await deleteCluster(id)",
+      "        message.success(t('global.message.remove_successful'));",
+      "        refresh()",
+      "      },",
+      "    });",
+      ""
+    ],
+    "description": ""
+  }
 }
