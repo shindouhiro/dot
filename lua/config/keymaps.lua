@@ -10,7 +10,8 @@ function Map(mode, lhs, rhs, opts)
   end
   vim.keymap.set(mode, lhs, rhs, options)
 end
-
+local opts = { noremap = true, silent = true, buffer = bufnr }
+vim.keymap.set({ "n", "t" }, "<c-t>", "<cmd>Lspsaga term_toggle<CR>", opts) -- Floating terminal
 -- ---------- bookmarks --------------
 -- vim.keymap.set("n", "mi", function()
 --   require("bookmarks").add_bookmark()
@@ -43,9 +44,19 @@ local lazyterm = function()
   Util.float_term(nil, { cwd = Util.get_root() })
 end
 
-Map("n", "<c-t>", "<cmd>Lspsaga term_toggle<cr>", { desc = "Terminal (Root Dir)" })
-Map("t", "<C-t>", "<cmd>Lspsaga term_toggle<cr>", { desc = "Hide Terminal" })
-
+-- Map(
+--   "n",
+--   "<c-t>",
+--   "<cmd>Lspsaga term_toggle<cr>",
+--   { desc = "Terminal (Root Dir)", noremap = true, silent = true, buffer = bufnr }
+-- )
+-- Map(
+--   "t",
+--   "<C-t>",
+--   "<cmd>Lspsaga term_toggle<cr>",
+--   { desc = "Hide Terminal", noremap = true, silent = true, buffer = bufnr }
+-- )
+--
 -- lazygit
 Map("n", "<C-g>", function()
   Util.terminal({ "lazygit" }, { cwd = Util.root(), esc_esc = false, ctrl_hjkl = false })
@@ -68,4 +79,4 @@ Map("v", "<leader>fte", "<cmd>Fitten translate_text_into_english<cr>", { desc = 
 Map("v", "<leader>ftrc", "<cmd>Fitten refactor_code<cr>", { desc = "重构" })
 Map("v", "<leader>ftoc", "<cmd>Fitten refactor_code<cr>", { desc = "优化" })
 
--- vim.keymap.set("n", "lg", "<cmd>Logsitter<cr>")
+-- vim.keymap.set("n", "lg", "<cmd>Logsitter<cr>"iiii)
