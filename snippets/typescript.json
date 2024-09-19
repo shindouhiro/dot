@@ -176,5 +176,25 @@
       ""
     ],
     "description": ""
+  },
+  "swr-imp": {
+    "prefix": "swr-imp",
+    "body": [
+      "import useSWRMutation from 'swr/mutation';",
+      ""
+    ],
+    "description": ""
+  },
+  "swr-put": {
+    "prefix": "swr-put",
+    "body": [
+      "export function useUpdateApi(apiId?: string) {",
+      "  return useSwrMutation(`${ABILITY_APIS_PATH}/${apiId}`, (_: string, { arg }: { arg: any }) =>",
+      "    request(`${ABILITY_APIS_PATH}/${apiId}`, { method: 'PUT', body: arg }),",
+      "  );",
+      "}",
+      ""
+    ],
+    "description": ""
   }
 }

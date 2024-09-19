@@ -10,13 +10,9 @@ function Map(mode, lhs, rhs, opts)
   end
   vim.keymap.set(mode, lhs, rhs, options)
 end
-local opts = { noremap = true, silent = true, buffer = bufnr }
+local opts = { noremap = true, silent = true }
 vim.keymap.set({ "n", "t" }, "<c-t>", "<cmd>Lspsaga term_toggle<CR>", opts) -- Floating terminal
--- ---------- bookmarks --------------
--- vim.keymap.set("n", "mi", function()
---   require("bookmarks").add_bookmark()
--- end, { desc = "Add bookmark" })
---
+
 Map("i", "jk", "<Esc>")
 Map("v", "jk", "<Esc>")
 Map("n", "<C-h>", "<cmd>lua require'tmux'.move_left()<cr>", { desc = "Go to left window" })
@@ -73,10 +69,19 @@ end, { desc = "accept_all_suggestions" })
 Map("i", "<a-k>", function()
   require("fittencode").dismiss_suggestions()
 end, { desc = "dismiss_all_suggestions" })
-Map("n", "<leader>fc", "<cmd>Fitten start_chat<cr>", { desc = "start_chat" })
+Map("n", "<S-l>", "<cmd>Fitten start_chat<cr>", { desc = "start_chat" })
 Map("v", "<leader>ftc", "<cmd>Fitten translate_text_into_chinese<cr>", { desc = "翻译中文" })
 Map("v", "<leader>fte", "<cmd>Fitten translate_text_into_english<cr>", { desc = "翻译英文" })
-Map("v", "<leader>ftrc", "<cmd>Fitten refactor_code<cr>", { desc = "重构" })
+Map("v", "<S-r>", "<cmd>Fitten refactor_code<cr>", { desc = "重构" })
 Map("v", "<leader>ftoc", "<cmd>Fitten refactor_code<cr>", { desc = "优化" })
 
 -- vim.keymap.set("n", "lg", "<cmd>Logsitter<cr>"iiii)
+-- local opts = { noremap = true, silent = true }
+
+-- 设置快捷键打开浮动终端并输入 ls 命令
+-- 打开浮动终端并执行 ls 命令
+-- vim.keymap.set("n", "<C-l>", function()
+--   vim.cmd("term")
+--   vim.api.nvim_put({ "Yazi" }, "b", false, true) -- 发送 ls 命令到终端
+--   vim.cmd("startinsert") -- 进入插入模式
+-- end, opts)

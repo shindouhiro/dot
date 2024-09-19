@@ -1,11 +1,11 @@
-return {
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight",
-    },
-  },
-}
+-- return {
+--   {
+--     "LazyVim/LazyVim",
+--     opts = {
+--       colorscheme = "everforest",
+--     },
+--   },
+-- }
 --
 --
 --[[ return {
@@ -21,15 +21,15 @@ return {
   },
 } ]]
 
--- return {
---   "Mofiqul/dracula.nvim",
---   opts = {
---     colorscheme = "dracula",
---   },
---   {
---     "LazyVim/LazyVim",
---     opts = {
---       colorscheme = "dracula",
---     },
---   },
--- }
+return {
+  "Mofiqul/dracula.nvim",
+  opts = {
+    colorscheme = "dracula",
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "dracula",
+    },
+  },
+}

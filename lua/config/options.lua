@@ -10,3 +10,4 @@ opt.undofile = false -- 不创建撤销文件
 opt.clipboard = "unnamedplus" -- Use system clipboard
 opt.fixeol = false -- Turn off appending new line in the end of a file
 -- opt.timeoutlen = 3000
+--
