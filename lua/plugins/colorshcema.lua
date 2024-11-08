@@ -8,28 +8,15 @@
 -- }
 --
 --
---[[ return {
-  "sainnhe/everforest",
-  opts = {
-    colorscheme = "everforest",
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "everforest",
-    },
-  },
-} ]]
-
 return {
-  "Mofiqul/dracula.nvim",
+  "catppuccin/nvim",
   opts = {
-    colorscheme = "dracula",
+    colorscheme = "catppuccin",
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "dracula",
+      colorscheme = "catppuccin",
     },
   },
 }

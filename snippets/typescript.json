@@ -13,14 +13,6 @@
     ],
     "description": "ant-translation"
   },
-  "ant-access": {
-    "prefix": "ant-access",
-    "body": [
-      "<ProjectAccess accessKey=\"application_manage\">",
-      ""
-    ],
-    "description": ""
-  },
   "mui-crud": {
     "prefix": "mui-crud",
     "body": [
@@ -144,38 +136,6 @@
       ""
     ],
     "description": "mui-delete"
-  },
-  "ant-table": {
-    "prefix": "ant-table",
-    "body": [
-      "  const { tableProps, search, refresh } = useAntdTable(getClusterList, {",
-      "    defaultPageSize: 10,",
-      "    form,",
-      "    pollingInterval: 5000,",
-      "  });",
-      ""
-    ],
-    "description": "ant-table"
-  },
-  "ant-delete": {
-    "prefix": "ant-delete",
-    "body": [
-      "    modal.confirm({",
-      "      icon: <CtgIcon type=\"icon-circle-warn\" style={{ color: 'rgba(235, 56, 80, 1)' }} />,",
-      "      title: '确认',",
-      "      content: `确认删除集群${row.name}吗？`,",
-      "      okButtonProps: {",
-      "        danger: true",
-      "      },",
-      "      onOk: async () => {",
-      "        await deleteCluster(id)",
-      "        message.success(t('global.message.remove_successful'));",
-      "        refresh()",
-      "      },",
-      "    });",
-      ""
-    ],
-    "description": ""
   },
   "swr-imp": {
     "prefix": "swr-imp",

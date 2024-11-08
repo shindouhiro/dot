@@ -15,11 +15,11 @@ vim.keymap.set({ "n", "t" }, "<c-t>", "<cmd>Lspsaga term_toggle<CR>", opts) -- F
 
 Map("i", "jk", "<Esc>")
 Map("v", "jk", "<Esc>")
-Map("n", "<C-h>", "<cmd>lua require'tmux'.move_left()<cr>", { desc = "Go to left window" })
-Map("n", "<C-j>", "<cmd>lua require'tmux'.move_bottom()<cr>", { desc = "Go to lower window" })
-Map("n", "<C-k>", "<cmd>lua require'tmux'.move_top()<cr>", { desc = "Go to upper window" })
-Map("n", "<C-l>", "<cmd>lua require'tmux'.move_right()<cr>", { desc = "Go to right window" })
-
+-- Map("n", "<C-h>", "<cmd>lua require'tmux'.move_left()<cr>", { desc = "Go to left window" })
+-- Map("n", "<C-j>", "<cmd>lua require'tmux'.move_bottom()<cr>", { desc = "Go to lower window" })
+-- Map("n", "<C-k>", "<cmd>lua require'tmux'.move_top()<cr>", { desc = "Go to upper window" })
+-- Map("n", "<C-l>", "<cmd>lua require'tmux'.move_right()<cr>", { desc = "Go to right window" })
+--
 Map("n", "gf", "<cmd>Lspsaga finder<CR>")
 Map("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
 -- ---------- 视觉模式 --------------
